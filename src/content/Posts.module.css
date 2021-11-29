@@ -1,0 +1,10 @@
+.head {
+  color: blue;
+}
+form {
+  display: flex;
+  margin-top: 3px;
+}
+button {
+  align-self: start;
+}

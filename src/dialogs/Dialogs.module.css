@@ -1,0 +1,39 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+  width: 100%;
+}
+.dialogs {
+  padding: 10px;
+}
+.messages {
+  padding: 10px;
+}
+.item a:hover {
+  color: red;
+}
+.message {
+}
+a {
+  text-decoration: none;
+}
+.item img {
+  width: 50px;
+  height: 50px;
+}
+.item {
+  display: flex;
+}
+.online {
+  border-radius: 50%;
+  background-color: lime;
+}
+.offline {
+  border-radius: 50%;
+  background-color: red;
+}
+.circle {
+  width: 10px;
+  height: 10px;
+  margin: 8px 0 0 2px;
+}

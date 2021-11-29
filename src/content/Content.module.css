@@ -1,0 +1,28 @@
+.contentImg {
+  max-height: 200px;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.userInfo {
+  display: flex;
+  justify-content: stretch;
+}
+.userInfo img {
+  width: 150px;
+  min-height: 150px;
+}
+.bio {
+  margin-left: 1rem;
+}
+.bio h1 {
+  margin-top: 0;
+}
+.content {
+  width: 90%;
+}
+.bio.active h1 {
+  color: gold;
+}
+.bio p {
+  margin: 8px 0px;
+}

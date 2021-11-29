@@ -1,0 +1,28 @@
+.sidebar {
+  background-color: rgb(0, 47, 255);
+  margin-right: 1rem;
+}
+.sidebar a {
+  padding-left: 1rem;
+  color: white;
+  text-decoration: none;
+}
+.sidebar .link {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.sidebar :last-child {
+  margin-bottom: 0;
+}
+.sidebar a:hover {
+  color: white;
+}
+.sidebar a:active {
+  color: red;
+}
+.root {
+  flex-grow: 1;
+}
+.title {
+  flex-grow: 1;
+}
