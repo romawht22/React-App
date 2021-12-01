@@ -1,8 +1,8 @@
 import { Button } from '@material-ui/core';
 import React, { useState } from 'react';
-import { setCurrentPage, setNewUsers } from '../redux/actions';
 import { useAppDispatch, useAppSelector } from '../redux/store';
 import c from './UserPage.module.css';
+import {setNewUsers,setCurrentPage} from '../redux/userPageSlice'
 
 type PropsType = {
   totalUsersCount:number

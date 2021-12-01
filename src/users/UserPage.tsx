@@ -1,10 +1,11 @@
 import { Typography } from '@material-ui/core';
 import React, { useEffect } from 'react';
-import { setUsers } from '../redux/actions';
 import { useAppDispatch, useAppSelector } from '../redux/store';
 import Paginator from './Paginator';
 import User from './User';
 import c from './UserPage.module.css';
+import {fetchUsers} from '../redux/userPageSlice'
+
 
 const UserPage:React.FC = () => {
   const dispatch = useAppDispatch();
@@ -13,7 +14,7 @@ const UserPage:React.FC = () => {
     return users.users;
   });
   useEffect(() => {
-    dispatch(setUsers());
+    dispatch(fetchUsers());
   }, [dispatch]);
   return (
     <div className={c.wrapper}>
