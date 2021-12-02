@@ -1,17 +1,17 @@
 import Post from './Post';
 import classes from '../content/Posts.module.css';
-import { createPost, inputText } from '../redux/actions';
 import { useAppDispatch, useAppSelector } from '../redux/store';
 import { ChangeEvent, SyntheticEvent, useState } from 'react';
 import { Button, TextareaAutosize } from '@material-ui/core';
 import SnackBar from './SnackBar';
+import {createPost,inputText} from '../redux/postsSlice'
 
 const Posts:React.FC = () => {
   const [isSnackOpen,setisSnackOpen] = useState(false)
   const dispatch = useAppDispatch();
   const text = useAppSelector((state) => {
-    const { text } = state;
-    return text.text;
+    const {posts} = state
+    return posts.text
   });
   const posts = useAppSelector((state) => {
     const { posts } = state;
