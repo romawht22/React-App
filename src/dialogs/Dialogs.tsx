@@ -1,6 +1,6 @@
 import React from 'react';
 import c from './Dialogs.module.css';
-import { Link } from 'react-router-dom';
+import { Link,Redirect } from 'react-router-dom';
 import { useAppSelector } from '../redux/store';
 
 type DialogsPropsType ={
@@ -27,6 +27,10 @@ const Message:React.FC<MessagePropsType> = (p) => {
   return <div className={`${c.message}`}>{p.message}</div>;
 };
 const Dialogs:React.FC = () => {
+  const isAuth = useAppSelector((state) => {
+    const { auth } = state;
+    return auth.isAuth;
+  });
   const dialogs = useAppSelector((state) => {
     const { dialogs } = state;
     return dialogs.dialogs;
@@ -36,30 +40,32 @@ const Dialogs:React.FC = () => {
     return messages.messages;
   });
   return (
-    <div className={c.wrapper}>
-      <div className={`${c.dialogs}`}>
-        {dialogs.map((d) => {
-          return (
-            <div key={d.id}>
-              <Dialog
-                name={d.name}
-                id={d.id}
-                img={d.avatar}
-                status={d.isOnline}
-              />
-            </div>
-          );
-        })}
-      </div>
-      <div className={`${c.messages}`}>
-        {messages.map((m) => (
-          <div key={m.id}>
-            <Message message={m.message} id={m.id} />
+    <>
+    {isAuth ? 
+      <div className={c.wrapper}>
+    <div className={`${c.dialogs}`}>
+      {dialogs.map((d) => {
+        return (
+          <div key={d.id}>
+            <Dialog
+              name={d.name}
+              id={d.id}
+              img={d.avatar}
+              status={d.isOnline}
+            />
           </div>
-        ))}
-      </div>
+        );
+      })}
     </div>
-  );
+    <div className={`${c.messages}`}>
+      {messages.map((m) => (
+        <div key={m.id}>
+          <Message message={m.message} id={m.id} />
+        </div>
+      ))}
+    </div>
+  </div> : <Redirect to='/login'/>};
+  </>)
 };
 
 export default Dialogs;

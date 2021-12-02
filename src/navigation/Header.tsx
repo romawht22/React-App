@@ -1,7 +1,7 @@
-import { AppBar, Button, IconButton, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Avatar, Button, IconButton, Toolbar, Typography } from '@material-ui/core';
 import {useAppDispatch, useAppSelector } from '../redux/store'
 import c from './Sidebar.module.css';
-import {logIn,logOut} from '../redux/authSlice'
+import {logOut} from '../redux/authSlice'
 
 const Header:React.FC = () => {
  const dispatch = useAppDispatch()
@@ -9,9 +9,6 @@ const Header:React.FC = () => {
     const { auth } = state;
     return auth.isAuth;
   });
-  const loginHandler = () => {
-    dispatch(logIn())
-  };
   const logoutHandler = () => {
     dispatch(logOut());
   };
@@ -29,11 +26,14 @@ const Header:React.FC = () => {
     <Typography variant="h6" className={c.title}>
       React App
     </Typography>
-    {isAuth ? (
-          <Button color="inherit" onClick={logoutHandler}>LogOut</Button>
-        ) : (
-          <Button color="inherit" onClick={loginHandler}>LogIn</Button>
-        )}
+    {isAuth ? 
+      <div className={c.smallUserInfo}>
+        <Avatar 
+        src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSheI9UkWllIpSNbs2UdE18KLLswgDON9qzXg&usqp=CAU' alt='avatar'
+        />
+        <Button color="inherit" onClick={logoutHandler}>LogOut</Button>
+      </div>
+         : null}
   </Toolbar>
 </AppBar>
     </header>

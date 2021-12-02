@@ -1,6 +1,7 @@
 .sidebar {
   background-color: rgb(0, 47, 255);
   margin-right: 1rem;
+  height: 500px;
 }
 .sidebar a {
   padding-left: 1rem;
@@ -25,4 +26,8 @@
 }
 .title {
   flex-grow: 1;
+}
+.smallUserInfo {
+  display: flex;
+  justify-content: center;
 }
