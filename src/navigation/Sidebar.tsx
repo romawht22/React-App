@@ -7,13 +7,7 @@ const Sidebar:React.FC = () => {
         <Link to='/profile'>Profile</Link>
       </div>
       <div className={`${c.link}`}>
-        <Link to='/news'>News</Link>
-      </div>
-      <div className={`${c.link}`}>
         <Link to='/messages'>Messages</Link>
-      </div>
-      <div className={`${c.link}`}>
-        <Link to='/music'>Music</Link>
       </div>
       <div className={`${c.link}`}>
         <Link to='/settings'>Settings</Link>

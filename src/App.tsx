@@ -2,8 +2,6 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import Content from './content/Content';
 import Dialogs from './dialogs/Dialogs';
-import Music from './dialogs/Music';
-import News from './dialogs/News';
 import Settings from './dialogs/Settings';
 import Header from './navigation/Header';
 import LoginPage from './navigation/LoginPage';
@@ -30,12 +28,6 @@ function App() {
             </Route>
             <Route exact path='/messages'>
               <Dialogs />
-            </Route>
-            <Route exact path='/news'>
-              <News />
-            </Route>
-            <Route exact path='/music'>
-              <Music />
             </Route>
             <Route exact path='/settings'>
               <Settings />
