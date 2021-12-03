@@ -1,6 +1,6 @@
 import { Input} from '@material-ui/core';
 import React, { ChangeEvent, useState } from 'react';
-import { useAppSelector } from '../redux/store';
+import { authInfo } from '../firebase/firebase-config';
 import classes from './Content.module.css';
 import SnackBar from './SnackBar';
 
@@ -18,10 +18,9 @@ const Profile:React.FC = () => {
     setEditMode(false)
     setisSnackOpen(true)
   }
-  const userInfo = useAppSelector((store)=>{
-    const {auth} = store
-    return auth.userInfo
-  })
+  const User = authInfo.currentUser
+  console.log(User);
+  
   const handleClose = (
     event: React.SyntheticEvent | React.MouseEvent,
     reason?: string,
@@ -38,8 +37,8 @@ const Profile:React.FC = () => {
         <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSheI9UkWllIpSNbs2UdE18KLLswgDON9qzXg&usqp=CAU' alt='avatar' />
       </div>
       <div className={`${classes.bio}`}>
-        <h1>{userInfo.login}</h1>
-        <p>Email:{userInfo.email}</p>
+        <h1>user</h1>
+        <p>Email:{User?.email}</p>
         <p>Website: https://some-site.com</p>
         <p>Status:</p>
         {editMode ? (

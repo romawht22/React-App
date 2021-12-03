@@ -6,15 +6,16 @@ const authSlice = createSlice({
         isAuth: false,
         userInfo:{
             login:'',
-            email:''
+            email:'',
+            password:''
         }
     },
     reducers:{
       logIn(state){
-          state.isAuth = true
+        state.isAuth = true
       },
       logOut(state){
-          state.isAuth = false
+        state.isAuth = false
       },
       setUserInfo(state,action){
         state.userInfo = action.payload

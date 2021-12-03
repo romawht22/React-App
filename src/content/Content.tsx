@@ -5,10 +5,13 @@ import Profile from './Profile';
 import { Redirect } from 'react-router-dom';
 import { useAppSelector } from '../redux/store';
 const Content:React.FC = () => {
-  const isAuth = useAppSelector((state) => {
-    const { auth } = state;
-    return auth.isAuth;
-  });
+  const isAuth = useAppSelector((state)=>{
+    const {auth} = state
+    return auth.isAuth
+  })
+  console.log(isAuth);
+   
+ 
   return (
     <>
       {isAuth ? (

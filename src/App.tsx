@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Content from './content/Content';
 import Dialogs from './dialogs/Dialogs';
@@ -18,7 +18,7 @@ function App() {
           <Sidebar />
           <Switch>
             <Route exact path='/'>
-              <Redirect to='/profile' />
+              <Content/>
             </Route>
             <Route exact path='/profile'>
               <Content />
