@@ -1,22 +1,27 @@
 import { AppBar, Avatar, Button, IconButton, Toolbar, Typography } from '@material-ui/core';
-import {useAppDispatch, useAppSelector } from '../redux/store'
 import c from './Sidebar.module.css';
-import {logOut} from '../redux/authSlice'
+import { signOut } from "firebase/auth";
+import { authInfo } from '../firebase/firebase-config';
+import { useAppDispatch, useAppSelector } from '../redux/store';
+import { logOut } from '../redux/authSlice';
+
 
 const Header:React.FC = () => {
- const dispatch = useAppDispatch()
-  const isAuth = useAppSelector((state) => {
-    const { auth } = state;
-    return auth.isAuth;
-  });
-  const logoutHandler = () => {
-    dispatch(logOut());
-  };
+  const dispath = useAppDispatch()
+  const logOutUser = async() =>{
+    await signOut(authInfo)
+    dispath(logOut())
+  }
+  const isAuth = useAppSelector((state)=>{
+    const {auth} = state
+    return auth.isAuth
+  }) 
+   
   return (
     <header className='header'>
       <AppBar position="static">
   <Toolbar>
-    <IconButton edge="start"  color="inherit" aria-label="menu">
+    <IconButton edge="start" size='small'  color="inherit" aria-label="menu">
     <img
           className='logo'
           src='https://d1csarkz8obe9u.cloudfront.net/posterpreviews/creative-logo-or-icon-design-template-d6cdd0b35fc4b69ddc3288a7abd52ff3_screen.jpg?ts=1578260767'
@@ -31,7 +36,7 @@ const Header:React.FC = () => {
         <Avatar 
         src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSheI9UkWllIpSNbs2UdE18KLLswgDON9qzXg&usqp=CAU' alt='avatar'
         />
-        <Button color="inherit" onClick={logoutHandler}>LogOut</Button>
+        <Button color="inherit" onClick={logOutUser}>LogOut</Button>
       </div>
          : null}
   </Toolbar>

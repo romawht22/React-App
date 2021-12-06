@@ -27,10 +27,6 @@ const Message:React.FC<MessagePropsType> = (p) => {
   return <div className={`${c.message}`}>{p.message}</div>;
 };
 const Dialogs:React.FC = () => {
-  const isAuth = useAppSelector((state) => {
-    const { auth } = state;
-    return auth.isAuth;
-  });
   const dialogs = useAppSelector((state) => {
     const { dialogs } = state;
     return dialogs.dialogs;
@@ -39,9 +35,13 @@ const Dialogs:React.FC = () => {
     const { messages } = state;
     return messages.messages;
   });
+  const isAuth = useAppSelector((state)=>{
+    const {auth} = state
+    return auth.isAuth
+  }) 
   return (
     <>
-    {isAuth ? 
+    {isAuth  ? 
       <div className={c.wrapper}>
     <div className={`${c.dialogs}`}>
       {dialogs.map((d) => {
